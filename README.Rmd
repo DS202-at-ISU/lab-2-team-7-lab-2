@@ -21,11 +21,98 @@ View(ames)
 head(ames)
 
 str(ames)
-```
-##Step 1 Results##
-1. Inspected the first few lines of the data set. The variables are Parcel ID, Address, Style, Occupancy, Sale Date, Sale Price, Multi Sale, YearBuilt, Acres, Total Living Area, Bedrooms, Finished Basement, Lot Area, AC, Fireplace, and Neighborhood.
-2. The types of variables are numerical, character, date, and factor/categorical.
-3. 
 
+summary(ames)
+```
+
+## Step 1 Results
+
+Inspected the first few lines of the data set. The variables are Parcel ID, Address, Style, Occupancy, Sale Date, Sale Price, Multi Sale, YearBuilt, Acres, Total Living Area, Bedrooms, Finished Basement, Lot Area, AC, Fireplace, and Neighborhood. The types of variables are numerical, character, date, and factor/categorical.
+
+**Parcel ID**
+
+-   Character variable that describes ID of sale
+
+**Address**
+
+-   Character variable that states home address
+
+**Style**
+
+-   Factor/Categorical variable that describes the style of the home
+
+-   Has 12 different categories
+
+**Occupancy**
+
+-   Factor/Categorical variable that describes the home occupancy
+
+-   Has 5 different categories
+
+**Sale Date**
+
+-   Date variable of the format "2022-08-12" that records the date of the sale
+
+-   Minimum of 2017-07-03 and maximum of 2022-08-31
+
+**Sale Price**
+
+-   Numerical variable that records the price of the sale
+
+-   Ranges from 0 to 20500000
+
+**Multi Sale**
+
+-   Character variable that indicates whether it was a multi sale or not
+
+**YearBuilt**
+
+-   Numerical variable that records the year the home was built
+
+-   Ranges from 0 (but in reality, 1880) to 2022
+
+**Acres**
+
+-   Numerical variable that records the number of acres the home is
+
+-   Ranges from 0 to 12.012
+
+**TotalLivingArea (sf)**
+
+-   Numerical variable that records the square feet of the living area
+
+-   Ranges from 0 to 6007
+
+**Bedrooms**
+
+-   Numerical variable indicating the number of bedrooms in the home
+
+-   Ranges from 0 to 10
+
+**FinishedBsmtArea (sf)**
+
+-   Numerical variable that states the area of finished basement in square feet
+
+-   Ranges from 10 to 6496
+
+**LotArea (sf)**
+
+-   Numerical variable that states the lot area
+
+-   Ranges from 0 to 523228
+
+**AC**
+
+-   Character variable that indicates if the home has air conditioning or not
+
+**Fireplace**
+
+-   Character variable that indicates if the home has a fireplace or not
+
+**Neighborhood**
+
+-   Factor/categorical variable that state the neighboorhood of the home
+
+-   42 categories
 
 All submissions to the github repo will be automatically uploaded for grading once the due date is passed. Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
