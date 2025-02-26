@@ -21,7 +21,8 @@ View(ames)
 head(ames)
 ```
 
-#Step 1 Result#
+## Step 1 Result ##
+
 Inspected the first few lines of the data set. The variables are Parcel ID, Address, Style, Occupancy, Sale Date, Sale Price, Multi Sale, YearBuilt, Acres, Total Living Area, Bedrooms, Finished Basement, Lot Area, AC, Fireplace, and Neighborhood.
 
 All submissions to the github repo will be automatically uploaded for grading once the due date is passed. Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
