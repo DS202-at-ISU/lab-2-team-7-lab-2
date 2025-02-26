@@ -265,13 +265,35 @@ The range of TotalLivingArea is 6007 (ranges from 0 to 6007).
 
 ``` r
 library(ggplot2)
-ggplot(data = ames, aes(x = `TotalLivingArea (sf)`)) + geom_histogram(binwidth = 10)
+ggplot(data = ames, mapping = aes(x = `TotalLivingArea (sf)`)) + geom_histogram(binwidth = 10)
 ```
 
     ## Warning: Removed 447 rows containing non-finite outside the scale range
     ## (`stat_bin()`).
 
 ![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+``` r
+ggplot(data = ames, mapping = aes(x = `TotalLivingArea (sf)`, y = `Sale Price`)) + geom_point()
+```
+
+    ## Warning: Removed 447 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
+
+``` r
+ggplot(data = ames, mapping = aes(x = log(`TotalLivingArea (sf)`), y = log(`Sale Price`))) + geom_point()
+```
+
+    ## Warning: Removed 447 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-3-3.png)<!-- --> As
+TotalLivingArea increases, Sale Price also increases, indicating that
+sale price and total living area have a positive correlation. The two
+variables do not have a very strong correlation, as the data points are
+scattered. (Section about outliers)
 
 All submissions to the github repo will be automatically uploaded for
 grading once the due date is passed. Submit a link to your repository on

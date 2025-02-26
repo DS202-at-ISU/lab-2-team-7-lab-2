@@ -117,16 +117,20 @@ Inspected the first few lines of the data set. The variables are Parcel ID, Addr
 
 ## Step 4 Results
 
-**Grace's Work:**
-Variable used: TotalLivingArea (sf)
+**Grace's Work:** Variable used: TotalLivingArea (sf)
+
 ```{r}
 summary(ames)
 ```
+
 The range of TotalLivingArea is 6007 (ranges from 0 to 6007).
 
 ```{r}
 library(ggplot2)
-ggplot(data = ames, aes(x = `TotalLivingArea (sf)`)) + geom_histogram(binwidth = 10)
+ggplot(data = ames, mapping = aes(x = `TotalLivingArea (sf)`)) + geom_histogram(binwidth = 10)
+ggplot(data = ames, mapping = aes(x = `TotalLivingArea (sf)`, y = `Sale Price`)) + geom_point()
+ggplot(data = ames, mapping = aes(x = log(`TotalLivingArea (sf)`), y = log(`Sale Price`))) + geom_point()
 ```
+As TotalLivingArea increases, Sale Price also increases, indicating that sale price and total living area have a positive correlation. The two variables do not have a very strong correlation, as the data points are scattered. (Section about outliers)
 
 All submissions to the github repo will be automatically uploaded for grading once the due date is passed. Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
