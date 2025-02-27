@@ -123,7 +123,7 @@ The following code creates the histogram for Sale Price. I have log transformed 
 
 ```{r}
 data <- classdata::ames
-
+library(ggplot2)
 ggplot(data, aes(x = log(`Sale Price`))) +
   geom_histogram(binwidth = 0.1, fill = "steelblue", color = "black") +
   labs(title = "Histogram of Log(Sale Price)",

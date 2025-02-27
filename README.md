@@ -12,6 +12,8 @@ Include your answers in this document (Rmd file). Make sure that it
 knits properly (into the md file). Upload both the Rmd and the md file
 to your repository.
 
+=======
+
 ``` r
 library(classdata)
 View(ames)
@@ -212,6 +214,48 @@ numerical, character, date, and factor/categorical.
 
 - 42 categories
 
+## Step 3 Results
+
+The following code creates the histogram for Sale Price. I have log
+transformed it to show teh distribution more accurately.
+
+``` r
+data <- classdata::ames
+library(ggplot2)
+ggplot(data, aes(x = log(`Sale Price`))) +
+  geom_histogram(binwidth = 0.1, fill = "steelblue", color = "black") +
+  labs(title = "Histogram of Log(Sale Price)",
+       x = "Log(Sale Price)",
+       y = "Count") +
+  theme_minimal()
+```
+
+    ## Warning: Removed 2206 rows containing non-finite outside the scale range
+    ## (`stat_bin()`).
+
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+The following code creates the histogram for Sale Price.
+
+``` r
+ggplot(data, aes(x = `Sale Price`)) +
+  geom_histogram(binwidth = 10000, fill = "steelblue", color = "black") +
+  labs(title = "Histogram of Sale Price",
+       x = "Sale Price",
+       y = "Count") +
+  theme_minimal()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- --> The follwoing
+code returns the range of the Sale Price Variable.
+
+``` r
+range_sale_price <- range(data$`Sale Price`, na.rm = TRUE)
+range_sale_price
+```
+
+    ## [1]        0 20500000
+
 ## Step 4 Results
 
 **Grace’s Work:** Variable used: TotalLivingArea (sf)
@@ -271,7 +315,7 @@ ggplot(data = ames, mapping = aes(x = `TotalLivingArea (sf)`)) + geom_histogram(
     ## Warning: Removed 447 rows containing non-finite outside the scale range
     ## (`stat_bin()`).
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 ``` r
 ggplot(data = ames, mapping = aes(x = `TotalLivingArea (sf)`, y = `Sale Price`)) + geom_point()
@@ -280,7 +324,7 @@ ggplot(data = ames, mapping = aes(x = `TotalLivingArea (sf)`, y = `Sale Price`))
     ## Warning: Removed 447 rows containing missing values or values outside the scale range
     ## (`geom_point()`).
 
-![](README_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
 ``` r
 ggplot(data = ames, mapping = aes(x = log(`TotalLivingArea (sf)`), y = log(`Sale Price`))) + geom_point()
@@ -289,8 +333,9 @@ ggplot(data = ames, mapping = aes(x = log(`TotalLivingArea (sf)`), y = log(`Sale
     ## Warning: Removed 447 rows containing missing values or values outside the scale range
     ## (`geom_point()`).
 
-![](README_files/figure-gfm/unnamed-chunk-3-3.png)<!-- --> As
-TotalLivingArea increases, Sale Price also increases, indicating that
+![](README_files/figure-gfm/unnamed-chunk-6-3.png)<!-- -->
+
+As TotalLivingArea increases, Sale Price also increases, indicating that
 sale price and total living area have a positive correlation. The two
 variables do not have a very strong correlation, as the data points are
 scattered. (Section about outliers)
