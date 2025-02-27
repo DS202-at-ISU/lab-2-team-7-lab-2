@@ -119,6 +119,8 @@ Inspected the first few lines of the data set. The variables are Parcel ID, Addr
 
 ## Step 3 Results
 
+The following code creates the histogram for Sale Price. I have log transformed it to show teh distribution more accurately.
+
 ```{r}
 data <- classdata::ames
 
@@ -130,6 +132,9 @@ ggplot(data, aes(x = log(`Sale Price`))) +
   theme_minimal()
 
 ```
+
+The following code creates the histogram for Sale Price.
+
 ```{r}
 ggplot(data, aes(x = `Sale Price`)) +
   geom_histogram(binwidth = 10000, fill = "steelblue", color = "black") +
@@ -138,6 +143,8 @@ ggplot(data, aes(x = `Sale Price`)) +
        y = "Count") +
   theme_minimal()
 ```
+The follwoing code returns the range of the Sale Price Variable.
+
 ```{r}
 range_sale_price <- range(data$`Sale Price`, na.rm = TRUE)
 range_sale_price
