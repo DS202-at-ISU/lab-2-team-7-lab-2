@@ -14,8 +14,8 @@ Follow the instructions posted at <https://ds202-at-isu.github.io/labs.html> for
 
 Include your answers in this document (Rmd file). Make sure that it knits properly (into the md file). Upload both the Rmd and the md file to your repository.
 
-<<<<<<< HEAD
 =======
+
 ```{r}
 library(classdata)
 View(ames)
@@ -117,6 +117,33 @@ Inspected the first few lines of the data set. The variables are Parcel ID, Addr
 
 -   42 categories
 
+## Step 3 Results
+
+```{r}
+data <- classdata::ames
+
+ggplot(data, aes(x = log(`Sale Price`))) +
+  geom_histogram(binwidth = 0.1, fill = "steelblue", color = "black") +
+  labs(title = "Histogram of Log(Sale Price)",
+       x = "Log(Sale Price)",
+       y = "Count") +
+  theme_minimal()
+
+```
+```{r}
+ggplot(data, aes(x = `Sale Price`)) +
+  geom_histogram(binwidth = 10000, fill = "steelblue", color = "black") +
+  labs(title = "Histogram of Sale Price",
+       x = "Sale Price",
+       y = "Count") +
+  theme_minimal()
+```
+```{r}
+range_sale_price <- range(data$`Sale Price`, na.rm = TRUE)
+range_sale_price
+```
+
+
 ## Step 4 Results
 
 **Grace's Work:** Variable used: TotalLivingArea (sf)
@@ -133,7 +160,7 @@ ggplot(data = ames, mapping = aes(x = `TotalLivingArea (sf)`)) + geom_histogram(
 ggplot(data = ames, mapping = aes(x = `TotalLivingArea (sf)`, y = `Sale Price`)) + geom_point()
 ggplot(data = ames, mapping = aes(x = log(`TotalLivingArea (sf)`), y = log(`Sale Price`))) + geom_point()
 ```
+
 As TotalLivingArea increases, Sale Price also increases, indicating that sale price and total living area have a positive correlation. The two variables do not have a very strong correlation, as the data points are scattered. (Section about outliers)
 
->>>>>>> f6ad50bc7b4cbef5983d4f5024fcb9ebb099d97f
 All submissions to the github repo will be automatically uploaded for grading once the due date is passed. Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
