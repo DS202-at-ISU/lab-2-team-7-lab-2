@@ -117,7 +117,7 @@ Inspected the first few lines of the data set. The variables are Parcel ID, Addr
 
 -   42 categories
 
-## Step 3 Results
+## Step 3 Results by Akshat
 
 The following code creates the histogram for Sale Price. I have log transformed it to show the distribution more accurately.
 
@@ -192,5 +192,21 @@ ggplot(data, aes(x = Bedrooms)) +
   theme_minimal()
 
 ```
+
+The following code creates a scatterplot of the variables Sale Price and Bedroom. I also went ahead and added a regression line.
+
+```{r}
+ggplot(data = data,
+       aes(x = `Bedrooms`, y = `Sale Price`)) +
+       geom_point() +
+       stat_smooth() +
+       labs(title = 'Bedrooms vs. Sale Price',
+            x = "Number of Bedrooms",
+            y = "Sale Price in USD")
+```
+
+The discrete variable of bedrooms shows that it is not correlated with Sale Price as there is no obvious pattern that shows that my hypothesis that more bedrooms would be correlated with a higher sale price.
+
+Oddities: There are some houses with a sale price of \$0 as mentioned earlier. We would need to filter the data and remove such observations to have a better understanding of how bedrooms and sale price are correlated.
 
 All submissions to the github repo will be automatically uploaded for grading once the due date is passed. Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
