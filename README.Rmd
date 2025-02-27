@@ -119,7 +119,7 @@ Inspected the first few lines of the data set. The variables are Parcel ID, Addr
 
 ## Step 3 Results
 
-The following code creates the histogram for Sale Price. I have log transformed it to show teh distribution more accurately.
+The following code creates the histogram for Sale Price. I have log transformed it to show the distribution more accurately.
 
 ```{r}
 data <- classdata::ames
@@ -143,13 +143,15 @@ ggplot(data, aes(x = `Sale Price`)) +
        y = "Count") +
   theme_minimal()
 ```
-The follwoing code returns the range of the Sale Price Variable.
+
+The followoing code returns the range of the Sale Price Variable.
 
 ```{r}
 range_sale_price <- range(data$`Sale Price`, na.rm = TRUE)
 range_sale_price
 ```
 
+Points of interest: There seem to be sale prices of \$0 which does not make sense. It is likely that these 0's represent data that that does not have any value for sale price but is not listed as NA. I believe it is best to remove such observations.
 
 ## Step 4 Results
 
@@ -169,5 +171,26 @@ ggplot(data = ames, mapping = aes(x = log(`TotalLivingArea (sf)`), y = log(`Sale
 ```
 
 As TotalLivingArea increases, Sale Price also increases, indicating that sale price and total living area have a positive correlation. The two variables do not have a very strong correlation, as the data points are scattered. (Section about outliers)
+
+**Akshat's Work**: Variable Used: Bedrooms
+
+The following Code is the code that returns the range of the feature bedroom:
+
+```{r}
+range_bedrooms <- range(data$Bedrooms, na.rm = TRUE)
+range_bedrooms
+```
+
+The following code creates a bar chart of the bedroom variable.
+
+```{r}
+ggplot(data, aes(x = Bedrooms)) +
+  geom_bar(fill = "steelblue", color = "black") +
+  labs(title = "Distribution of Bedrooms",
+       x = "Number of Bedrooms",
+       y = "Count") +
+  theme_minimal()
+
+```
 
 All submissions to the github repo will be automatically uploaded for grading once the due date is passed. Submit a link to your repository on Canvas (only one submission per team) to signal to the instructors that you are done with your submission.
