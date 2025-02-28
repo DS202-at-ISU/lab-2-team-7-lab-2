@@ -214,10 +214,12 @@ numerical, character, date, and factor/categorical.
 
 - 42 categories
 
+## Step 2 Results
+
 ## Step 3 Results
 
 The following code creates the histogram for Sale Price. I have log
-transformed it to show teh distribution more accurately.
+transformed it to show the distribution more accurately.
 
 ``` r
 data <- classdata::ames
@@ -246,8 +248,9 @@ ggplot(data, aes(x = `Sale Price`)) +
   theme_minimal()
 ```
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- --> The follwoing
-code returns the range of the Sale Price Variable.
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+The followoing code returns the range of the Sale Price Variable.
 
 ``` r
 range_sale_price <- range(data$`Sale Price`, na.rm = TRUE)
@@ -255,6 +258,11 @@ range_sale_price
 ```
 
     ## [1]        0 20500000
+
+Points of interest: There seem to be sale prices of \$0 which does not
+make sense. It is likely that these 0’s represent data that that does
+not have any value for sale price but is not listed as NA. I believe it
+is best to remove such observations.
 
 ## Step 4 Results
 
@@ -337,8 +345,73 @@ ggplot(data = ames, mapping = aes(x = log(`TotalLivingArea (sf)`), y = log(`Sale
 
 As TotalLivingArea increases, Sale Price also increases, indicating that
 sale price and total living area have a positive correlation. The two
-variables do not have a very strong correlation, as the data points are
-scattered. (Section about outliers)
+variables do not have a very strong correlation however, as the data
+points are scattered. There are some outliers; homes with a sale price
+of \$0. There are also a group of homes that have a significantly higher
+sale price than the others. However, those homes with much higher sale
+prices don’t have a notably high total living area. There are also a
+couple homes that have a significantly higher total living area than
+others.
+
+**Akshat’s Work**: Variable Used: Bedrooms
+
+The following Code is the code that returns the range of the feature
+bedroom:
+
+``` r
+range_bedrooms <- range(data$Bedrooms, na.rm = TRUE)
+range_bedrooms
+```
+
+    ## [1]  0 10
+
+The following code creates a bar chart of the bedroom variable.
+
+``` r
+ggplot(data, aes(x = Bedrooms)) +
+  geom_bar(fill = "steelblue", color = "black") +
+  labs(title = "Distribution of Bedrooms",
+       x = "Number of Bedrooms",
+       y = "Count") +
+  theme_minimal()
+```
+
+    ## Warning: Removed 447 rows containing non-finite outside the scale range
+    ## (`stat_count()`).
+
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+The following code creates a scatterplot of the variables Sale Price and
+Bedroom. I also went ahead and added a regression line.
+
+``` r
+ggplot(data = data,
+       aes(x = `Bedrooms`, y = `Sale Price`)) +
+       geom_point() +
+       stat_smooth() +
+       labs(title = 'Bedrooms vs. Sale Price',
+            x = "Number of Bedrooms",
+            y = "Sale Price in USD")
+```
+
+    ## `geom_smooth()` using method = 'gam' and formula = 'y ~ s(x, bs = "cs")'
+
+    ## Warning: Removed 447 rows containing non-finite outside the scale range
+    ## (`stat_smooth()`).
+
+    ## Warning: Removed 447 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
+The discrete variable of bedrooms shows that it is not correlated with
+Sale Price as there is no obvious pattern that shows that my hypothesis
+that more bedrooms would be correlated with a higher sale price.
+
+Oddities: There are some houses with a sale price of \$0 as mentioned
+earlier. We would need to filter the data and remove such observations
+to have a better understanding of how bedrooms and sale price are
+correlated.
 
 All submissions to the github repo will be automatically uploaded for
 grading once the due date is passed. Submit a link to your repository on

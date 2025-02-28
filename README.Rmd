@@ -117,7 +117,10 @@ Inspected the first few lines of the data set. The variables are Parcel ID, Addr
 
 -   42 categories
 
-## Step 3 Results by Akshat
+## Step 2 Results
+
+
+## Step 3 Results
 
 The following code creates the histogram for Sale Price. I have log transformed it to show the distribution more accurately.
 
@@ -170,7 +173,7 @@ ggplot(data = ames, mapping = aes(x = `TotalLivingArea (sf)`, y = `Sale Price`))
 ggplot(data = ames, mapping = aes(x = log(`TotalLivingArea (sf)`), y = log(`Sale Price`))) + geom_point()
 ```
 
-As TotalLivingArea increases, Sale Price also increases, indicating that sale price and total living area have a positive correlation. The two variables do not have a very strong correlation, as the data points are scattered. (Section about outliers)
+As TotalLivingArea increases, Sale Price also increases, indicating that sale price and total living area have a positive correlation. The two variables do not have a very strong correlation however, as the data points are scattered. There are some outliers; homes with a sale price of $0. There are also a group of homes that have a significantly higher sale price than the others. However, those homes with much higher sale prices don't have a notably high total living area. There are also a couple homes that have a significantly higher total living area than others.
 
 **Akshat's Work**: Variable Used: Bedrooms
 
