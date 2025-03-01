@@ -8,7 +8,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Lab report #1
+# Lab 2 report
 
 Follow the instructions posted at <https://ds202-at-isu.github.io/labs.html> for the lab assignment. The work is meant to be finished during the lab time, but you have time until Monday evening to polish things.
 
@@ -119,7 +119,9 @@ Inspected the first few lines of the data set. The variables are Parcel ID, Addr
 
 ## Step 2 Results
 
-**Sale Price** is the variable that we decided was the variable of interest. There are quite a few *$0* values meaning that they were "sold" for *$0*. We are assuming that meant that there was no sale price for them in the data and instead of *NA* the values assigned was *$0*.
+**Sale Price** is the variable that we decided was the variable of interest. There are quite a few *$0* values meaning that they were "sold" for *$0*. We are assuming that meant that there was no sale price for them in the data and instead of *NA* the values assigned was *$0*. 
+
+Other variable of interests include TotalLivingArea and Bedrooms, as they could potentially  be key predictors of price. We focus on uncovering these correlations in Step 4.
 
 ## Step 3 Results
 

@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit the README.Rmd file -->
 
-# Lab report \#1
+# Lab 2 report
 
 Follow the instructions posted at
 <https://ds202-at-isu.github.io/labs.html> for the lab assignment. The
@@ -221,6 +221,10 @@ interest. There are quite a few *\$0* values meaning that they were
 “sold” for *\$0*. We are assuming that meant that there was no sale
 price for them in the data and instead of *NA* the values assigned was
 *\$0*.
+
+Other variable of interests include TotalLivingArea and Bedrooms, as
+they could potentially be key predictors of price. We focus on
+uncovering these correlations in Step 4.
 
 ## Step 3 Results
 
