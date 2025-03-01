@@ -216,6 +216,12 @@ numerical, character, date, and factor/categorical.
 
 ## Step 2 Results
 
+**Sale Price** is the variable that we decided was the variable of
+interest. There are quite a few *\$0* values meaning that they were
+“sold” for *\$0*. We are assuming that meant that there was no sale
+price for them in the data and instead of *NA* the values assigned was
+*\$0*.
+
 ## Step 3 Results
 
 The following code creates the histogram for Sale Price. I have log
@@ -413,6 +419,63 @@ Oddities: There are some houses with a sale price of \$0 as mentioned
 earlier. We would need to filter the data and remove such observations
 to have a better understanding of how bedrooms and sale price are
 correlated.
+
+**Harsh’s work** Variable used: LotArea(sf)
+
+``` r
+library(ggplot2)
+ggplot(data = ames, mapping = aes(x = `LotArea(sf)`)) + 
+  geom_histogram(binwidth = 5000, fill = "steelblue", color = "black") + 
+  labs(title = "Distribution of Lot Area",
+       x = "Lot Area",
+       y = "Count") + 
+  theme_minimal()
+```
+
+    ## Warning: Removed 89 rows containing non-finite outside the scale range
+    ## (`stat_bin()`).
+
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+
+``` r
+ggplot(data = ames, mapping = aes(x = `LotArea(sf)`, y = `Sale Price`)) + 
+  geom_point() + 
+  labs(title = "Lot Area vs Price",
+       x = "Lot Area",
+       y = "Price") + 
+  theme_minimal()
+```
+
+    ## Warning: Removed 89 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
+
+``` r
+ggplot(data = ames, mapping = aes(x = log(`LotArea(sf)`), y = log(`Sale Price`))) + 
+  geom_point() + 
+  labs(title = "log(Lot Area) vs lot(Price)",
+       x = "log(Lot Area)",
+       y = "lof(price)") + 
+  theme_minimal()
+```
+
+    ## Warning: Removed 89 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](README_files/figure-gfm/unnamed-chunk-10-3.png)<!-- -->
+
+As Lot Area increases, Sale Price also increases, indicating that sale
+price and Lot Area have a positive correlation. The two variables do not
+have a very strong correlation as there are some clusters and a decent
+spread of the points.
+
+There are some outliers; homes with a significantly higher sale price
+than the others. Some homes have a much higher sale price and don’t have
+a high Lot Area. There are some homes that have a sale price of \$0,
+which are most probably homes that don’t have a listed sale price. There
+are also a few homes that have a significantly higher Lot Area than
+others, but dont have a much change in sale price.
 
 All submissions to the github repo will be automatically uploaded for
 grading once the due date is passed. Submit a link to your repository on
